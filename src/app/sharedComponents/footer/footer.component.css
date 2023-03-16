@@ -12,7 +12,8 @@
     height: 66px;
     border-radius: 50px;
     border: none;
-    background-color: #1D2038;
+    background: #1D2038;
+    cursor: pointer;
 }
 
 .icon-list {
