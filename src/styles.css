@@ -6,9 +6,11 @@
   box-sizing: border-box;
 }
 
-body,
-html {
+html, button {
   font-family: "Quicksand", sans-serif;
-  background: #040722;
   color: white;
+}
+
+body {
+  background: #040722;
 }
