@@ -10,6 +10,7 @@ import { TasksHistoryComponent } from './pages/tasks-history/tasks-history.compo
 import { TasksNewComponent } from './pages/tasks-new/tasks-new.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { AddingTasksComponent } from './components/adding-tasks/adding-tasks.component';
+import { HistoricViewComponent } from './components/historic-view/historic-view.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddingTasksComponent } from './components/adding-tasks/adding-tasks.com
     TasksHistoryComponent,
     TasksNewComponent,
     LandingComponent,
-    AddingTasksComponent
+    AddingTasksComponent,
+    HistoricViewComponent
   ],
   imports: [
     BrowserModule,
