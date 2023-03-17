@@ -1,0 +1,85 @@
+.adding-form {
+    margin-top: 37px;
+}
+
+.categories-p,
+.buttons,
+.mytask-label {
+    margin-bottom: 28px;
+    font-weight: bold;
+}
+
+.buttons-d {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.btn {
+width: 48px;
+height: 48px;
+border: none;
+border-radius: 50%;
+background: #1D2038;
+cursor: pointer;
+}
+
+.inputs {
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 160px;
+}
+
+.mytask-input {
+    width: 338px;
+    height: 182px;
+    margin-bottom: 31px;
+    background: #1D2038;
+    border: none;
+    color: white;
+}
+
+input::placeholder {
+    font-family: "Quicksand", sans-serif;
+    padding-left: 20px;
+}
+
+.checkbox {
+    display: flex;
+}
+
+.checkbox-item {
+    width: 25px;
+    height: 25px;
+    background-color: #1D2038;
+    border: none;
+    border-radius: 50px;
+    margin-right: 11px;
+    clip-path: circle(46% at 50% 50%);
+    cursor: pointer;
+    /* appearance: none;
+    -webkit-appearance: none; */
+    /* outline: none; */
+}
+
+.checkbox-l {
+    font-weight: bold;
+}
+
+.validation {
+    display: flex;
+    justify-content: center;
+}
+
+.form-validation-btn {
+    width: 248px;
+    height: 48px;
+    font-weight: bold;
+    color: white;
+    background-color: #64A7D9;
+    padding: 14px 4px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
