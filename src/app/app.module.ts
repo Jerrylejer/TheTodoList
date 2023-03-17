@@ -8,6 +8,7 @@ import { FooterComponent } from './sharedComponents/footer/footer.component';
 import { TasksListComponent } from './pages/tasks-list/tasks-list.component';
 import { TasksHistoryComponent } from './pages/tasks-history/tasks-history.component';
 import { TasksNewComponent } from './pages/tasks-new/tasks-new.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TasksNewComponent } from './pages/tasks-new/tasks-new.component';
     FooterComponent,
     TasksListComponent,
     TasksHistoryComponent,
-    TasksNewComponent
+    TasksNewComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
