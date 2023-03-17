@@ -15,7 +15,7 @@ export class FooterComponent {
     this.btnColorListing = '#88E7A1';
     if(this.btnColorAdd == '#F3D24F' || this.btnColorHistory == '#E475F1') {
       this.btnColorAdd = '#1D2038';
-      this.btnColorAdd ='#1D2038';
+      this.btnColorHistory ='#1D2038';
     }
   }
   switchBtnColors2() {
