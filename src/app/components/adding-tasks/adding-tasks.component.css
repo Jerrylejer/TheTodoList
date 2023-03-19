@@ -80,3 +80,8 @@ textarea::placeholder {
     border-radius: 30px;
     cursor: pointer;
 }
+
+.form-validation-btn:disabled {
+    background-color: #64a6d98c;
+    color: rgba(255, 255, 255, 0.622)
+}

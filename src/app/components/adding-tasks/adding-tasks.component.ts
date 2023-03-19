@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ITodo } from '../../interfaces/myTask';
 import { TasksService } from 'src/app/services/tasks.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adding-tasks',
@@ -10,7 +11,7 @@ import { TasksService } from 'src/app/services/tasks.service';
 })
 export class AddingTasksComponent {
   // J'appelle mon service
-  constructor(private todo: TasksService) {}
+  constructor(private todo: TasksService, private route: Router) {}
 
   // Ma propriété qui qui va stocker les données du formulaire
   //! Je ne parviens pas à récupérer mes catégories distinctes via [(ngModel)] => voir Manon
@@ -22,6 +23,11 @@ export class AddingTasksComponent {
     doneDate: null,
   };
 
+  onInit() {
+    //! Cela ne me retourne rien ...
+    console.log(this.todos.category[0])
+  }
+
   // Je capte mon Formulaire pour utiliser le reset() et vider les inputs
   @ViewChild('myForm') todoForm!: NgForm;
 
@@ -30,10 +36,16 @@ export class AddingTasksComponent {
     this.todo.addTodos(todos);
   }
 
+  // Soumission du formulaire
   onSubmit() {
+    // Je lis ma tâche
     console.log(this.todos);
+    // J'ajoute la tache au localStore
     this.addTodo(this.todos);
+    // Je reset les champs du formulaire
     this.todoForm.reset();
+    // Je retourne à la page d'accueil
+    return this.route.navigate(['/']);
   }
 
   // Couleurs btn au clic
