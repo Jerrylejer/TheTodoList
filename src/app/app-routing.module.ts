@@ -18,11 +18,11 @@ const routes: Routes = [
     component: TasksHistoryComponent
   },
   // Dans l'attente d'une vraie 404
-  {
-    path: '**',
-    redirectTo: '',
-    pathMatch: 'full'
-  },
+  // {
+  //   path: '**',
+  //   redirectTo: '',
+  //   pathMatch: 'full'
+  // },
 ];
 
 @NgModule({
