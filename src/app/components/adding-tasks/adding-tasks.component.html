@@ -1,75 +1,75 @@
-<form class="form-body" ngForm #myForm="ngForm" (ngSubmit)="onSubmit()">
+<form class="form-body" #myForm="ngForm" (ngSubmit)="onSubmit()">
   <div class="buttons">
     <p class="categories-p">Sélectionner votre catégorie* :</p>
     <div class="buttons-d">
-      <button
-        type="button"
-        class="btn"
-        (click)="switchBtnColors1()"
-        [ngStyle]="{ background: btnColor1 }"
-        [(ngModel)]="todos.category"
-        value="shopping"
-        ngDefaultControl
-        name="category"
-      >
-        <img src="../../../assets/icons_categories/🛍️.png" alt="shopping" />
-      </button>
-      <button
-        type="button"
-        class="btn"
-        (click)="switchBtnColors2()"
-        [ngStyle]="{ background: btnColor2 }"
-        [(ngModel)]="todos.category"
-        value="health"
-        ngDefaultControl
-        name="category"
-      >
-        <img src="../../../assets/icons_categories/💊️.png" alt="health" />
-      </button>
-      <button
-        type="button"
-        class="btn"
-        (click)="switchBtnColors3()"
-        [ngStyle]="{ background: btnColor3 }"
-        [(ngModel)]="todos.category"
-        value="work"
-        ngDefaultControl
-        name="category"
-      >
-        <img src="../../../assets/icons_categories/💼.png" alt="work" />
-      </button>
-      <button
-        type="button"
-        class="btn"
-        (click)="switchBtnColors4()"
-        [ngStyle]="{ background: btnColor4 }"
-        [(ngModel)]="todos.category"
-        value="bills"
-        ngDefaultControl
-        name="category"
-      >
-        <img src="../../../assets/icons_categories/💸.png" alt="bills" />
-      </button>
-      <button
-        type="button"
-        class="btn"
-        (click)="switchBtnColors5()"
-        [ngStyle]="{ background: btnColor5 }"
-        [(ngModel)]="todos.category"
-        value="cleaning"
-        ngDefaultControl
-        name="category"
-      >
-        <img src="../../../assets/icons_categories/🧼.png" alt="others" />
-      </button>
-      <button
-        type="button"
-        class="btn"
-        [(ngModel)]="todos.category"
-        value="others"
-        ngDefaultControl
-        name="category"
-      ></button>
+        <button
+          type="button"
+          class="btn"
+          (click)="switchBtnColors1()"
+          [ngStyle]="{ background: btnColor1 }"
+          [(ngModel)]="todos.category"
+          value="shopping"
+          ngDefaultControl
+          name="category"
+        >
+          <img src="../../../assets/icons_categories/🛍️.png" alt="shopping" />
+        </button>
+        <button
+          type="button"
+          class="btn"
+          (click)="switchBtnColors2()"
+          [ngStyle]="{ background: btnColor2 }"
+          [(ngModel)]="todos.category"
+          value="health"
+          ngDefaultControl
+          name="category"
+        >
+          <img src="../../../assets/icons_categories/💊️.png" alt="health" />
+        </button>
+        <button
+          type="button"
+          class="btn"
+          (click)="switchBtnColors3()"
+          [ngStyle]="{ background: btnColor3 }"
+          [(ngModel)]="todos.category"
+          value="work"
+          ngDefaultControl
+          name="category"
+        >
+          <img src="../../../assets/icons_categories/💼.png" alt="work" />
+        </button>
+        <button
+          type="button"
+          class="btn"
+          (click)="switchBtnColors4()"
+          [ngStyle]="{ background: btnColor4 }"
+          [(ngModel)]="todos.category"
+          value="bills"
+          ngDefaultControl
+          name="category"
+        >
+          <img src="../../../assets/icons_categories/💸.png" alt="bills" />
+        </button>
+        <button
+          type="button"
+          class="btn"
+          (click)="switchBtnColors5()"
+          [ngStyle]="{ background: btnColor5 }"
+          [(ngModel)]="todos.category"
+          value="cleaning"
+          ngDefaultControl
+          name="category"
+        >
+          <img src="../../../assets/icons_categories/🧼.png" alt="others" />
+        </button>
+        <button
+          type="button"
+          class="btn"
+          [(ngModel)]="todos.category"
+          value="others"
+          ngDefaultControl
+          name="category"
+        ></button>
     </div>
   </div>
   <div class="inputs">
@@ -86,6 +86,7 @@
       ngDefaultControl
       name="content"
       placeholder="Exemple : Faire les courses"
+      required
     ></textarea>
     <div class="checkbox">
       <input
@@ -105,7 +106,7 @@
     <input
       type="submit"
       class="form-validation-btn"
-      [disabled]="myForm.invalid"
+      [disabled]="!myForm.valid"
       value="Valider ma tâche"
     />
   </div>
