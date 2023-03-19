@@ -1,4 +1,4 @@
-.adding-form {
+.form-body {
     margin-top: 37px;
 }
 
@@ -31,18 +31,17 @@ cursor: pointer;
     margin-bottom: 160px;
 }
 
-.mytask-input {
-    width: 338px;
-    height: 182px;
+.mytask-textarea {
     margin-bottom: 31px;
     background: #1D2038;
     border: none;
     color: white;
 }
 
-input::placeholder {
+textarea::placeholder {
     font-family: "Quicksand", sans-serif;
     padding-left: 20px;
+    padding-top: 20px;
 }
 
 .checkbox {
@@ -58,9 +57,7 @@ input::placeholder {
     margin-right: 11px;
     clip-path: circle(46% at 50% 50%);
     cursor: pointer;
-    /* appearance: none;
-    -webkit-appearance: none; */
-    /* outline: none; */
+    background:#1D2038 ;
 }
 
 .checkbox-l {

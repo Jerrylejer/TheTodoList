@@ -1,18 +1,41 @@
 import { Injectable } from '@angular/core';
-import { myTask } from '../interfaces/task';
+import { ITodo } from '../interfaces/myTask';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TasksService {
-  // J'instancie un tableau vide qui est de type myTask[] (mon interface)
-  todos!: myTask[];
-  // Je crée une méthode qui me retourne ma liste de todo
-  getTodos() {
-    return this.todos;
+  // Ma propriété qui qui va stocker les données du formulaire
+  //! Je ne parviens pas à récupérer mes catégories via [(ngModel)] => voir Manon
+  todos: ITodo = {
+    id: 1,
+    content: '',
+    category: ['bills', 'cleaning', 'health', 'other', 'shopping', 'work'],
+    isUrgent: false,
+    doneDate: null
   }
-  // Je crée une méthode qui push une todo dans todos
-  addTodo(todo: myTask) {
-    return this.todos.push(todo);
+  // Création du localStorage
+  createTodosStore() {
+    const myTodo: ITodo[] = [];
+    // myTodo.push(this.todos);
+    const stringifyMyTodo = JSON.stringify(myTodo);
+    localStorage.setItem('todo', stringifyMyTodo);
+  }
+  // Récupération la liste des tâches ou la créée dans LS
+  getTodos() {
+    const todoList = localStorage.getItem('todo');
+    if (todoList) {
+      return JSON.parse(todoList);
+    } else {
+      this.createTodosStore();
+      this.getTodos();
+    }
+    console.log(todoList);
+  }
+  // Ajouter une tache au LS (pas de vérification pour commencer)
+  addTodos(todos: ITodo) {
+    const storage = this.getTodos();
+    storage.push(todos);
+    localStorage.setItem('todo', JSON.stringify(storage));
   }
 }
