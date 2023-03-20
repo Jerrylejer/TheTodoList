@@ -2,74 +2,83 @@
   <div class="buttons">
     <p class="categories-p">Sélectionner votre catégorie* :</p>
     <div class="buttons-d">
-        <button
-          type="button"
+      <div>
+        <input
+          type="radio"
           class="btn"
-          (click)="switchBtnColors1()"
-          [ngStyle]="{ background: btnColor1 }"
           [(ngModel)]="todos.category"
+          ngDefaultControl
           value="shopping"
-          ngDefaultControl
           name="category"
-        >
-          <img src="../../../assets/icons_categories/🛍️.png" alt="shopping" />
-        </button>
-        <button
-          type="button"
+          id="shopping-radio"
+        />
+        <label for="shopping-radio"></label>
+      </div>
+
+      <div>
+        <input
+          type="radio"
           class="btn"
-          (click)="switchBtnColors2()"
-          [ngStyle]="{ background: btnColor2 }"
           [(ngModel)]="todos.category"
+          ngDefaultControl
           value="health"
-          ngDefaultControl
           name="category"
-        >
-          <img src="../../../assets/icons_categories/💊️.png" alt="health" />
-        </button>
-        <button
-          type="button"
+          id="health-radio"
+        />
+        <label for="health-radio"></label>
+      </div>
+
+      <div>
+        <label for="work-radio"> </label>
+        <input
+          type="radio"
           class="btn"
-          (click)="switchBtnColors3()"
-          [ngStyle]="{ background: btnColor3 }"
           [(ngModel)]="todos.category"
+          ngDefaultControl
           value="work"
-          ngDefaultControl
           name="category"
-        >
-          <img src="../../../assets/icons_categories/💼.png" alt="work" />
-        </button>
-        <button
-          type="button"
+          id="work-radio"
+        />
+      </div>
+
+      <div>
+        <input
+          type="radio"
           class="btn"
-          (click)="switchBtnColors4()"
-          [ngStyle]="{ background: btnColor4 }"
           [(ngModel)]="todos.category"
+          ngDefaultControl
           value="bills"
-          ngDefaultControl
           name="category"
-        >
-          <img src="../../../assets/icons_categories/💸.png" alt="bills" />
-        </button>
-        <button
-          type="button"
+          id="bills-radio"
+        />
+        <label for="bills-radio"></label>
+      </div>
+
+      <div>
+        <input
+          type="radio"
           class="btn"
-          (click)="switchBtnColors5()"
-          [ngStyle]="{ background: btnColor5 }"
           [(ngModel)]="todos.category"
+          ngDefaultControl
           value="cleaning"
-          ngDefaultControl
           name="category"
-        >
-          <img src="../../../assets/icons_categories/🧼.png" alt="others" />
-        </button>
-        <button
-          type="button"
+          id="cleaning-radio"
+        />
+        <label for="cleaning-radio"></label>
+      </div>
+
+      <div>
+        <input
+          type="radio"
           class="btn"
           [(ngModel)]="todos.category"
-          value="others"
           ngDefaultControl
+          value="others"
           name="category"
-        ></button>
+          id="others-radio"
+        />
+        <label for="others-radio"></label>
+      </div>
     </div>
   </div>
   <div class="inputs">

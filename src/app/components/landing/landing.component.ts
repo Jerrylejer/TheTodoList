@@ -13,7 +13,7 @@ export class LandingComponent {
   // J'utilise'mon service
   constructor(private todo: TasksService) {}
 
-  onInit() {
+  ngOnInit() {
     //! Je ne récupère rien en console ...
     this.getTodoList();
   }
