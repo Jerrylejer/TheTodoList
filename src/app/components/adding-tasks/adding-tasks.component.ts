@@ -13,19 +13,22 @@ export class AddingTasksComponent {
   // J'appelle mon service
   constructor(private todo: TasksService, private route: Router) {}
 
+  // Je récupère la valeur de l'input type radio que j'envoie ensuite dans mon objet todos
+  formCategory: string = '';
+
   // Ma propriété qui qui va stocker les données du formulaire
-  //! Je ne parviens pas à récupérer mes catégories distinctes via [(ngModel)] => voir Manon
+  //! Ok Il faut faire attention à utiliser todos.category dans le html ... Je n'appelais que formCategory
   todos: ITodo = {
-    id: 1,
+    id: 0,
     content: '',
-    category: ['bills', 'cleaning', 'health', 'other', 'shopping', 'work'],
+    category: this.formCategory,
     isUrgent: false,
     doneDate: null,
   };
 
-  onInit() {
-    //! Cela ne me retourne rien ...
-    console.log(this.todos.category[0])
+  ngOnInit() {
+    // je récupère la première valeur de mon tableau prop categorie
+    console.log(this.todos.category);
   }
 
   // Je capte mon Formulaire pour utiliser le reset() et vider les inputs
@@ -38,6 +41,7 @@ export class AddingTasksComponent {
 
   // Soumission du formulaire
   onSubmit() {
+    console.log('todoForm', this.todoForm);
     // Je lis ma tâche
     console.log(this.todos);
     // J'ajoute la tache au localStore
@@ -46,84 +50,5 @@ export class AddingTasksComponent {
     this.todoForm.reset();
     // Je retourne à la page d'accueil
     return this.route.navigate(['/']);
-  }
-
-  // Couleurs btn au clic
-  btnColor1: string = '#1D2038';
-  btnColor2: string = '#1D2038';
-  btnColor3: string = '#1D2038';
-  btnColor4: string = '#1D2038';
-  btnColor5: string = '#1D2038';
-
-  switchBtnColors1() {
-    this.btnColor1 = '#F3D24F';
-    if (
-      this.btnColor2 == '#F3D24F' ||
-      this.btnColor3 == '#F3D24F' ||
-      this.btnColor4 == '#F3D24F' ||
-      this.btnColor5 == '#F3D24F'
-    ) {
-      this.btnColor2 = '#1D2038';
-      this.btnColor3 = '#1D2038';
-      this.btnColor4 = '#1D2038';
-      this.btnColor5 = '#1D2038';
-    }
-  }
-  switchBtnColors2() {
-    this.btnColor2 = '#F3D24F';
-    if (
-      this.btnColor1 == '#F3D24F' ||
-      this.btnColor3 == '#F3D24F' ||
-      this.btnColor4 == '#F3D24F' ||
-      this.btnColor5 == '#F3D24F'
-    ) {
-      this.btnColor1 = '#1D2038';
-      this.btnColor3 = '#1D2038';
-      this.btnColor4 = '#1D2038';
-      this.btnColor5 = '#1D2038';
-    }
-  }
-  switchBtnColors3() {
-    this.btnColor3 = '#F3D24F';
-    if (
-      this.btnColor1 == '#F3D24F' ||
-      this.btnColor2 == '#F3D24F' ||
-      this.btnColor4 == '#F3D24F' ||
-      this.btnColor5 == '#F3D24F'
-    ) {
-      this.btnColor1 = '#1D2038';
-      this.btnColor2 = '#1D2038';
-      this.btnColor4 = '#1D2038';
-      this.btnColor5 = '#1D2038';
-    }
-  }
-
-  switchBtnColors4() {
-    this.btnColor4 = '#F3D24F';
-    if (
-      this.btnColor1 == '#F3D24F' ||
-      this.btnColor2 == '#F3D24F' ||
-      this.btnColor3 == '#F3D24F' ||
-      this.btnColor5 == '#F3D24F'
-    ) {
-      this.btnColor1 = '#1D2038';
-      this.btnColor2 = '#1D2038';
-      this.btnColor3 = '#1D2038';
-      this.btnColor5 = '#1D2038';
-    }
-  }
-  switchBtnColors5() {
-    this.btnColor5 = '#F3D24F';
-    if (
-      this.btnColor1 == '#F3D24F' ||
-      this.btnColor2 == '#F3D24F' ||
-      this.btnColor3 == '#F3D24F' ||
-      this.btnColor4 == '#F3D24F'
-    ) {
-      this.btnColor1 = '#1D2038';
-      this.btnColor2 = '#1D2038';
-      this.btnColor3 = '#1D2038';
-      this.btnColor4 = '#1D2038';
-    }
   }
 }

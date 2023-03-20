@@ -1,14 +1,15 @@
 .form-body {
-    margin-top: 37px;
+  margin-top: 37px;
 }
 
 .categories-p,
 .buttons,
 .mytask-label {
-    margin-bottom: 28px;
-    font-weight: bold;
+  margin-bottom: 28px;
+  font-weight: bold;
 }
 
+/* LE RADIOS CATEGORY */
 .buttons-d {
     display: flex;
     justify-content: center;
@@ -16,72 +17,83 @@
     gap: 10px;
 }
 
-.btn {
-width: 48px;
-height: 48px;
-border: none;
-border-radius: 50%;
-background: #1D2038;
-cursor: pointer;
+input[type="radio"] {
+    display: none;
+  }
+
+input[type="radio"] + label {
+  background: #1d2038;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
 }
 
+input[type="radio"]:checked + label {
+background: #F3D24F;
+}
+
+/* LE TEXTAREA */
 .inputs {
-    display:flex;
-    flex-direction: column;
-    margin-bottom: 160px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 160px;
 }
 
 .mytask-textarea {
-    margin-bottom: 31px;
-    background: #1D2038;
-    border: none;
-    color: white;
+  margin-bottom: 31px;
+  background: #1d2038;
+  border: none;
+  color: white;
 }
 
 textarea::placeholder {
-    font-family: "Quicksand", sans-serif;
-    padding-left: 20px;
-    padding-top: 20px;
+  font-family: "Quicksand", sans-serif;
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
+/* LA CHECBOX */
 .checkbox {
-    display: flex;
+  display: flex;
 }
 
 .checkbox-item {
-    width: 25px;
-    height: 25px;
-    background-color: #1D2038;
-    border: none;
-    border-radius: 50px;
-    margin-right: 11px;
-    clip-path: circle(46% at 50% 50%);
-    cursor: pointer;
-    background:#1D2038 ;
+  width: 25px;
+  height: 25px;
+  background-color: #1d2038;
+  border: none;
+  border-radius: 50px;
+  margin-right: 11px;
+  clip-path: circle(46% at 50% 50%);
+  cursor: pointer;
+  background: #1d2038;
 }
 
 .checkbox-l {
-    font-weight: bold;
+  font-weight: bold;
 }
 
+/* LE BOUTON DE VALIDATION */
 .validation {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .form-validation-btn {
-    width: 248px;
-    height: 48px;
-    font-weight: bold;
-    color: white;
-    background-color: #64A7D9;
-    padding: 14px 4px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
+  width: 248px;
+  height: 48px;
+  font-weight: bold;
+  color: white;
+  background-color: #64a7d9;
+  padding: 14px 4px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
 }
 
 .form-validation-btn:disabled {
-    background-color: #64a6d98c;
-    color: rgba(255, 255, 255, 0.622)
+  background-color: #64a6d98c;
+  color: rgba(255, 255, 255, 0.622);
 }
