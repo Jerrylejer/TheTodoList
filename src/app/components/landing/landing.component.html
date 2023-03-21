@@ -1,6 +1,12 @@
 <section class="landing-page">
     <div class="landing-message">
-        <p>Aucune tâche pour le moment</p>
-        <button class="landing-button" routerLink="/myNewTask">Créer une tâche</button>
+        <ul>
+            <li *ngFor="let todo of todoLists">{{todo.content}}</li>
+        </ul>
+        <div [hidden]="isHide">
+            <!-- Faire un ngIf pour afficher conditionnellement cette div (si pas de tâches) -->
+            <p>Aucune tâche pour le moment</p>
+            <button class="landing-button" routerLink="/myNewTask">Créer une tâche</button>
+        </div>
     </div>
 </section>

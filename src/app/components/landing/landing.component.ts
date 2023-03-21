@@ -8,15 +8,27 @@ import { TasksService } from 'src/app/services/tasks.service';
   styleUrls: ['./landing.component.css'],
 })
 export class LandingComponent {
+  // Booléen qui gère l'apparition/disparition btn + message d'accueil
+  isHide: boolean = false;
   // Ma liste de todos
   todoLists: ITodo[] = [];
   // J'utilise'mon service
   constructor(private todo: TasksService) {}
 
   ngOnInit() {
-    //! Je ne récupère rien en console ...
+    // Je récupère ma liste des tâches
     this.getTodoList();
+    // Je lance ma méthode pour l'affichage accueil conditionnel
+    this.displayWelcomeMessage();
+    console.log(this.todoLists);
   }
+
+  // Méthode pour afficher ou non le bouton + "Aucune tâche pour le moment"
+  displayWelcomeMessage() {
+    // J'utilise une ternaire plus concise qu'un if
+    this.todoLists ? this.isHide = true : this.isHide = false;
+  }
+
   // Je récupère la liste des todos
   getTodoList() {
     this.todoLists = this.todo.getTodos();
