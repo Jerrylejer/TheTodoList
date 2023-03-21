@@ -19,7 +19,7 @@ export class AddingTasksComponent {
   // Ma propriété qui qui va stocker les données du formulaire
   //! Ok Il faut faire attention à utiliser todos.category dans le html ... Je n'appelais que formCategory
   todos: ITodo = {
-    id: 0,
+    id: this.todo.addNewId(),
     content: '',
     category: this.formCategory,
     isUrgent: false,

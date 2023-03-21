@@ -35,8 +35,22 @@ export class TasksService {
   
   // Ajouter une tache au LS (pas de vérification pour commencer)
   addTodos(todos: ITodo) {
+    // Je récupère ma liste de tâche ou j'en créé une
     const storage = this.getTodos();
+    // Je push ma tache dans le tableau
     storage.push(todos);
     localStorage.setItem('todo', JSON.stringify(storage));
+  }
+
+  // Création de l'index dynamique pour la tâche (todos.id)
+  addNewId(): number {
+    // Je récupère ma liste de tâche ou j'en créé une
+    const storage = this.getTodos();
+    // Je récupère mon champ todos.id dans une prop
+    let myId: number = this.todos.id;
+    // Je créé un index égale à la longueur du tableau des taches + 1
+     myId = storage.length + 1;
+    //  Je retourne ma props
+     return myId;
   }
 }
