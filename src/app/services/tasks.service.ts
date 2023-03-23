@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ITodo } from '../interfaces/myTask';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -11,9 +12,10 @@ export class TasksService {
     content: '',
     category: '',
     isUrgent: false,
-    doneDate: null
-  }
+    doneDate: null,
+  };
 
+  //! MES METHODES POUR LA LISTE DES TACHES
   // Création du localStorage
   createTodosStore() {
     const myTodo: ITodo[] = [];
@@ -32,7 +34,7 @@ export class TasksService {
     }
     console.log(todoList);
   }
-  
+
   // Ajouter une tache au LS (pas de vérification pour commencer)
   addTodos(todos: ITodo) {
     // Je récupère ma liste de tâche ou j'en créé une
@@ -49,8 +51,37 @@ export class TasksService {
     // Je récupère mon champ todos.id dans une prop
     let myId: number = this.todos.id;
     // Je créé un index égale à la longueur du tableau des taches + 1
-     myId = storage.length + 1;
+    myId = storage.length + 1;
     //  Je retourne ma props
-     return myId;
+    return myId;
+  }
+
+  //! MES METHODES POUR MON HISTORIQUE
+  // Création de l'espace historique dans le LS
+  createTodosHystory() {
+    const myHystoric:[] = [];
+    const stringifyMyHystoric = JSON.stringify(myHystoric);
+    localStorage.setItem('hystory', stringifyMyHystoric);
+  }
+
+  // Récupération la liste de l'historique ou création dans LS
+  getHystory() {
+    const hystoryList = localStorage.getItem('hystory');
+    if (hystoryList) {
+      return JSON.parse(hystoryList);
+    } else {
+      this.createTodosHystory();
+      this.getHystory();
+    }
+    console.log(hystoryList);
+  }
+
+  // Ajouter une tache à l'historique
+  addToHystory(hystoric: ITodo) {
+    // Je récupère ma liste de tâche ou j'en créé une
+    const storage = this.getHystory();
+    //! Il faut que je trouve comment mettre mes datas captées au click dans un objet, puis pusher l'objet dans le LS
+    storage.push(hystoric);
+    localStorage.setItem('hystory', JSON.stringify(storage));
   }
 }
