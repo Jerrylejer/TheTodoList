@@ -1,11 +1,11 @@
 <section class="landing-page">
-    <form class="listing-form">
-        <ul class="ul-form">
+    <div class="listing">
+        <ul class="ul">
             <!-- Ma tache doit être un radio button pour la sélection simple et envoie direct dans l'historique-->
             <!-- Elles doivent également être séparées en deux listes Urgentes | non-urgentes -->
             <p class="title-taskslists" [hidden]="!isHide">📌Tâches urgentes</p>
             <ng-container *ngFor="let todo of todoLists">
-                <li class="li-form" *ngIf="todo.isUrgent == true" (click)="submitButton(todo)"><input
+                <li class="li" *ngIf="todo.isUrgent == true" (click)="submitButton(todo)"><input
                     type="radio"
                     class="radio"
                     />
@@ -15,7 +15,7 @@
             <!-- Mon sous-titre s'affiche même si pas de tâche => à corriger -->
             <p class="title-taskslists" [hidden]="!isHide">🌸 Tâches non urgentes</p>
             <ng-container *ngFor="let todo of todoLists">
-                <li class="li-form" *ngIf="todo.isUrgent == false" (click)="submitButton(todo)"><input
+                <li class="li" *ngIf="todo.isUrgent == false" (click)="submitButton(todo)"><input
                     type="radio"
                     class="radio"
                     />
@@ -23,7 +23,7 @@
                 </li>
             </ng-container>
         </ul>
-    </form>
+    </div>
     <div class="landing-message">
         <div [hidden]="isHide">
             <!-- Afficher conditionnellement cette div (si pas de tâches) -->
