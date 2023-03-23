@@ -16,7 +16,6 @@ export class HistoricViewComponent {
   constructor(private historic: TasksService) {}
 
   ngOnInit() {
-    //! Je dois cliquer une seconde fois pour afficher la première tâche terminée
     this.getHistoryList();
   }
 

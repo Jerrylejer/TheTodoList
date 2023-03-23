@@ -58,7 +58,7 @@ export class TasksService {
 
   // Supprimer une tâche
   deleteOneTask() {
-
+    // A compléter
   }
 
   //! MES METHODES POUR MON HISTORIQUE
