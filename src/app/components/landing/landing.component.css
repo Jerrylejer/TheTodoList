@@ -1,19 +1,61 @@
-.landing-message {
+.landing-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    font-weight: bold;
+}
+
+/* Module de bienvenue (disparait morsque une liste est rapportée) */
+.landing-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: bold;
+  position:fixed;
+  bottom: 130px;
+  left: 19%;
 }
 
 .landing-button {
-    width: 248px;
-    height: 48px;
-    font-weight: bold;
-    color: white;
-    background-color: #64A7D9;
-    padding: 14px 4px;
-    border: none;
-    border-radius: 30px;
-    margin-top: 32px;
-    cursor: pointer;
+  width: 248px;
+  height: 48px;
+  font-weight: bold;
+  color: white;
+  background-color: #64a7d9;
+  padding: 14px 4px;
+  border: none;
+  border-radius: 30px;
+  margin-top: 32px;
+  cursor: pointer;
 }
+
+/* Mon formulaire */
+.listing-form {
+    margin-left: 28px;
+    margin-top: 20px;
+}
+
+/* Input de la tâche */
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] {
+  margin-right: 15px;
+  background: #1d2038;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+input[type="radio"] + label {
+    line-height:2em;
+}
+
+input[type="radio"]:checked {
+  background: #f3d24f;
+}
+
+

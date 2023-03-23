@@ -34,6 +34,16 @@ input[type="radio"]:checked + label {
 background: #F3D24F;
 }
 
+.label-cat {
+  position: relative;
+}
+
+.icon-cat {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+
 /* LE TEXTAREA */
 .inputs {
   display: flex;

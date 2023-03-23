@@ -1,6 +1,6 @@
 .tasks-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex;
+    justify-content: flex-start;
+    align-items:flex-start; */
     height: 80vh;
 }

@@ -1,10 +1,18 @@
 <section class="landing-page">
-    <div class="landing-message">
-        <ul>
-            <li *ngFor="let todo of todoLists">{{todo.content}}</li>
+    <form class="listing-form">
+        <ul class="ul-form">
+            <!-- Ma tache doit être un radio button pour la sélection simple et envoie direct dans l'historique-->
+            <li *ngFor="let todo of todoLists" class="li-form"><input
+                type="radio"
+                class="radio"
+                />
+                <label for="shopping-radio" class="task-label">{{todo.category}} {{todo.content}}</label>
+            </li>
         </ul>
+    </form>
+    <div class="landing-message">
         <div [hidden]="isHide">
-            <!-- Faire un ngIf pour afficher conditionnellement cette div (si pas de tâches) -->
+            <!-- Afficher conditionnellement cette div (si pas de tâches) -->
             <p>Aucune tâche pour le moment</p>
             <button class="landing-button" routerLink="/myNewTask">Créer une tâche</button>
         </div>

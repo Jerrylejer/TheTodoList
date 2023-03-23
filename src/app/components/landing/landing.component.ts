@@ -25,8 +25,8 @@ export class LandingComponent {
 
   // Méthode pour afficher ou non le bouton + "Aucune tâche pour le moment"
   displayWelcomeMessage() {
-    // J'utilise une ternaire plus concise qu'un if
-    this.todoLists ? this.isHide = true : this.isHide = false;
+    // J'utilise une ternaire plus concise qu'un if => J'ajoute le .length sinon le array vide me fait disparaitre la div
+    this.todoLists.length > 0 ? this.isHide = true : this.isHide = false;
   }
 
   // Je récupère la liste des todos
