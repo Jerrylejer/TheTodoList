@@ -3,18 +3,19 @@
         <ul class="ul-form">
             <!-- Ma tache doit être un radio button pour la sélection simple et envoie direct dans l'historique-->
             <!-- Elles doivent également être séparées en deux listes Urgentes | non-urgentes -->
-            <p class="title-taskslists">📌Tâches urgentes</p>
+            <p class="title-taskslists" [hidden]="!isHide">📌Tâches urgentes</p>
             <ng-container *ngFor="let todo of todoLists">
-                <li class="li-form" *ngIf="todo.isUrgent == true"><input
+                <li class="li-form" *ngIf="todo.isUrgent == true" (click)="submitButton(todo)"><input
                     type="radio"
                     class="radio"
                     />
                     <label for="shopping-radio" class="task-label">{{todo.category}} {{todo.content}}</label>
                 </li>
             </ng-container>
-            <p class="title-taskslists">🌸 Tâches non urgentes</p>
+            <!-- Mon sous-titre s'affiche même si pas de tâche => à corriger -->
+            <p class="title-taskslists" [hidden]="!isHide">🌸 Tâches non urgentes</p>
             <ng-container *ngFor="let todo of todoLists">
-                <li class="li-form" *ngIf="todo.isUrgent == false"><input
+                <li class="li-form" *ngIf="todo.isUrgent == false" (click)="submitButton(todo)"><input
                     type="radio"
                     class="radio"
                     />
