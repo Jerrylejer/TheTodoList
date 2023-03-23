@@ -20,6 +20,8 @@ export class LandingComponent {
   ngOnInit() {
     // Je récupère ma liste des tâches
     this.getTodoList();
+    // Je lance l'initialisation du tableau de l'historique
+    this.todo.getHistory()
     // Je lance ma méthode pour l'affichage accueil conditionnel
     this.displayWelcomeMessage();
     console.log(this.todoLists);
@@ -38,13 +40,13 @@ export class LandingComponent {
 
   // Au submit du radioBTN, je capte les données
   submitButton(hystoric: ITodo) {
-    //* je lis les données captées !!!! Je récupère mon objet !!!
+    // je lis les données captées !!!! Je récupère mon objet !!!
     console.log(hystoric)
     // J'envoie mon objet dans mon LS Historique
     this.todo.addToHystory(hystoric)
     //! J'efface ma tâche de la liste des tâches
-
+    
     // Je renvoie à la page de l'historique
-    return this.route.navigate(['myTaskHistory']);
+    this.route.navigate(['myTaskHistory']);
   }
 }

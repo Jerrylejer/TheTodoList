@@ -3,3 +3,35 @@
     margin-bottom: 38px;
     font-weight: bold;
 }
+
+/* Mon listing */
+.listing {
+    margin-left: 28px;
+    margin-top: 20px;
+}
+
+/* Input de la tâche */
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]+ *::before {
+  content:"";
+  margin-right: 15px;
+  accent-color: #1d2038;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+input[type="radio"] + label {
+    line-height:2em;
+}
+
+.title-taskslists {
+  margin: 28px 0;
+}

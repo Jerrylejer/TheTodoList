@@ -56,6 +56,11 @@ export class TasksService {
     return myId;
   }
 
+  // Supprimer une tâche
+  deleteOneTask() {
+
+  }
+
   //! MES METHODES POUR MON HISTORIQUE
   // Création de l'espace historique dans le LS
   createTodosHystory() {
@@ -65,13 +70,13 @@ export class TasksService {
   }
 
   // Récupération la liste de l'historique ou création dans LS
-  getHystory() {
+  getHistory() {
     const hystoryList = localStorage.getItem('hystory');
     if (hystoryList) {
       return JSON.parse(hystoryList);
     } else {
       this.createTodosHystory();
-      this.getHystory();
+      this.getHistory();
     }
     console.log(hystoryList);
   }
@@ -79,8 +84,8 @@ export class TasksService {
   // Ajouter une tache à l'historique
   addToHystory(hystoric: ITodo) {
     // Je récupère ma liste de tâche ou j'en créé une
-    const storage = this.getHystory();
-    //! Il faut que je trouve comment mettre mes datas captées au click dans un objet, puis pusher l'objet dans le LS
+    const storage = this.getHistory();
+    // Push des données dans mon tableau d'historique
     storage.push(hystoric);
     localStorage.setItem('hystory', JSON.stringify(storage));
   }

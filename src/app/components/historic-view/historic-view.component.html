@@ -2,10 +2,16 @@
     <div class="historic-p">
         <p>historique des tâches :</p>
     </div>
-    <div class="list-div">
-        <ul class="list-ul">
-            <!-- Boucle *ngFor pour récupérer les tâches envoyées en historique -->
-            <li class="list-li"></li>
+    <div class="listing-form">
+        <ul class="ul-form">
+            <ng-container *ngFor="let todo of hystoric">
+                <li class="li-form"><input
+                    type="radio"
+                    class="radio"
+                    />
+                    <label for="shopping-radio" class="task-label">{{todo.category}} {{todo.content}}</label>
+                </li>
+            </ng-container>
         </ul>
     </div>
 </section>
