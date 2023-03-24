@@ -41,9 +41,9 @@ export class AddingTasksComponent {
 
   // Soumission du formulaire
   onSubmit() {
-    console.log('todoForm', this.todoForm);
+    // console.log('todoForm', this.todoForm);
     // Je lis ma tâche
-    console.log(this.todos);
+    console.log('La tâche qui est va être ajoutée au LS : ', this.todos);
     // J'ajoute la tache au localStore
     this.addTodo(this.todos);
     // Je reset les champs du formulaire
