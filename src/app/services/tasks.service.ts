@@ -47,9 +47,11 @@ export class TasksService {
   deleteOneTask(id: number) {
     // Je récupère ma liste des tâches
     const storage = this.getTodos();
-    // Méthode splice qui prend en compte l'index (1er arg) et supprime le nombre d'éléments à patir de celui-ci (2ème arg)
+    // Le findIndex renvoie l'index de chaque objet DU TABLEAU STORAGE
+    const itemIndex = storage.findIndex((item: ITodo) => item.id === id)
+    // Méthode splice qui prend en compte l'itemIndex (1er arg) et supprime le nombre d'éléments à patir de celui-ci (2ème arg)
     //! La dernière tâche qui reste ne s'efface pas de la liste
-    storage.splice(id, 1);
+    storage.splice(itemIndex, 1);
     // Je renvoie dans le LS le nouveau tableau des todos mis à jour
     localStorage.setItem('todo', JSON.stringify(storage));
   }
