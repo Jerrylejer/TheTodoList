@@ -70,6 +70,9 @@ textarea::placeholder {
 }
 
 .checkbox-item {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 25px;
   height: 25px;
   background-color: #1d2038;
@@ -78,7 +81,13 @@ textarea::placeholder {
   margin-right: 11px;
   clip-path: circle(46% at 50% 50%);
   cursor: pointer;
-  background: #1d2038;
+  /* background: #1d2038; */
+  /* background: '✔'; */
+}
+
+.checkbox-item:checked {
+  content:'';
+  background-color: #E475F1;
 }
 
 .checkbox-l {
