@@ -9,7 +9,8 @@
                     type="radio"
                     class="radio"
                     />
-                    <label for="shopping-radio" class="task-label">{{todo.category}} {{todo.content}}</label>
+                    <!-- Mettre ma méthode (click)="versAddTasks()" dans le label interfère avec le submitButton() -->
+                    <label for="shopping-radio" class="task-label" >{{todo.category}} {{todo.content}}</label>
                 </li>
             </ng-container>
             <!-- Mon sous-titre s'affiche même si pas de tâche => à corriger -->
@@ -19,7 +20,8 @@
                     type="radio"
                     class="radio"
                     />
-                    <label for="shopping-radio" class="task-label">{{todo.category}} {{todo.content}}</label>
+                    <!-- Mettre ma méthode (click)="versAddTasks()" dans le label interfère avec le submitButton() -->
+                    <label for="shopping-radio" class="task-label" >{{todo.category}} {{todo.content}}</label>
                 </li>
             </ng-container>
         </ul>

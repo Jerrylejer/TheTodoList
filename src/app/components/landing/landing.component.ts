@@ -24,7 +24,7 @@ export class LandingComponent {
     this.todo.getHistory()
     // Je lance ma méthode pour l'affichage accueil conditionnel
     this.displayWelcomeMessage();
-    console.log(this.todoLists);
+    console.log('ma liste des tâches', this.todoLists);
   }
 
   // Méthode pour afficher ou non le bouton + "Aucune tâche pour le moment"
@@ -39,14 +39,23 @@ export class LandingComponent {
   }
 
   // Au submit du radioBTN, je capte les données
-  submitButton(hystoric: ITodo) {
-    // je lis les données captées !!!! Je récupère mon objet !!!
-    console.log(hystoric)
+  submitButton(selectedTodo: ITodo) {
+    // Je récupère mon objet (ma tâche) !!!
+    console.log('la tâche sélectionnée pour suppression :',selectedTodo)
     // J'envoie mon objet dans mon LS Historique
-    this.todo.addToHystory(hystoric)
-    //! J'efface ma tâche de la liste des tâches
-    
+    this.todo.addToHystory(selectedTodo)
+    //! J'efface ma tâche de la liste des tâches => Ok mais dernière tâche ne s'efface pas ... ????
+    console.log('index de la tâche qui doit être supprimée :', selectedTodo.id);
+    this.todo.deleteOneTask(selectedTodo.id);
     // Je renvoie à la page de l'historique
     this.route.navigate(['myTaskHistory']);
+  }
+
+
+  //todo Cliquer sur le texte pour renvoyer dans le adding-task AVEC les données de la tâche
+  versAddTasks() {
+        //! Prend le pas sur la soummission du BTN => la tâche n'est plus supprimée
+        // Je renvoie à la page de l'historique
+        this.route.navigate(['myNewTask']);
   }
 }

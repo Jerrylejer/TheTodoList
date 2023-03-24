@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ITodo } from '../interfaces/myTask';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -15,7 +14,7 @@ export class TasksService {
     doneDate: null,
   };
 
-  //! MES METHODES POUR LA LISTE DES TACHES
+  //TODO MES METHODES POUR LA LISTE DES TACHES
   // Création du localStorage
   createTodosStore() {
     const myTodo: ITodo[] = [];
@@ -32,7 +31,7 @@ export class TasksService {
       this.createTodosStore();
       this.getTodos();
     }
-    console.log(todoList);
+    console.log('Ma todoList :', todoList);
   }
 
   // Ajouter une tache au LS (pas de vérification pour commencer)
@@ -44,27 +43,33 @@ export class TasksService {
     localStorage.setItem('todo', JSON.stringify(storage));
   }
 
+  // Supprimer une tâche de la liste
+  deleteOneTask(id: number) {
+    // Je récupère ma liste des tâches
+    const storage = this.getTodos();
+    // Méthode splice qui prend en compte l'index (1er arg) et supprime le nombre d'éléments à patir de celui-ci (2ème arg)
+    //! La dernière tâche qui reste ne s'efface pas de la liste
+    storage.splice(id, 1);
+    // Je renvoie dans le LS le nouveau tableau des todos mis à jour
+    localStorage.setItem('todo', JSON.stringify(storage));
+  }
+
   // Création de l'index dynamique pour la tâche (todos.id)
   addNewId(): number {
     // Je récupère ma liste de tâche ou j'en créé une
     const storage = this.getTodos();
     // Je récupère mon champ todos.id dans une prop
     let myId: number = this.todos.id;
-    // Je créé un index égale à la longueur du tableau des taches + 1
-    myId = storage.length + 1;
+    // Je créé un index égale à la longueur du tableau des taches
+    myId = storage.length;
     //  Je retourne ma props
     return myId;
   }
 
-  // Supprimer une tâche
-  deleteOneTask() {
-    // A compléter
-  }
-
-  //! MES METHODES POUR MON HISTORIQUE
+  //TODO MES METHODES POUR MON HISTORIQUE
   // Création de l'espace historique dans le LS
   createTodosHystory() {
-    const myHystoric:[] = [];
+    const myHystoric: [] = [];
     const stringifyMyHystoric = JSON.stringify(myHystoric);
     localStorage.setItem('hystory', stringifyMyHystoric);
   }
@@ -78,7 +83,7 @@ export class TasksService {
       this.createTodosHystory();
       this.getHistory();
     }
-    console.log(hystoryList);
+    console.log('Ma liste historique :', hystoryList);
   }
 
   // Ajouter une tache à l'historique
