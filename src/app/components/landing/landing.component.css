@@ -7,11 +7,11 @@
 .landing-message {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  justify-content:flex-end;
   font-weight: bold;
-  position:fixed;
-  bottom: 130px;
-  left: 19%;
+  /* position:fixed;
+  bottom: 130px; */
 }
 
 .landing-button {

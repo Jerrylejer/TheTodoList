@@ -14,21 +14,32 @@ export class AddingTasksComponent {
   constructor(private todo: TasksService, private route: Router) {}
 
   // Je récupère la valeur de l'input type radio que j'envoie ensuite dans mon objet todos
+  // Ok Il faut faire attention à utiliser todos.category dans le html ... Je n'appelais que formCategory
   formCategory: string = '';
-
-  // Ma propriété qui qui va stocker les données du formulaire
-  //! Ok Il faut faire attention à utiliser todos.category dans le html ... Je n'appelais que formCategory
+  // Je récupère dans ma prop "modifiedTask", la liste de mon localStorage dédié à la tache à modifier
+  // Ce tableau sera nécessairement alimenté que par 1 seule tâche qui sera supprimée à la validation des modifs
+  modifiedTask: ITodo[] = this.todo.getModify();
+  // "todos" =>  propriété qui va stocker les données du formulaire
+  // Je fais une ternaire pour chaque propriété => Si mon tableau LS "modified" contient un objet, je prends les datas de cet objet sinon je capte les données de mon formulaire
   todos: ITodo = {
-    id: this.todo.addNewId(),
-    content: '',
-    category: this.formCategory,
-    isUrgent: false,
-    doneDate: null,
+    id:
+      this.modifiedTask.length > 0
+        ? this.modifiedTask[0].id
+        : this.todo.addNewId(),
+    content: this.modifiedTask.length > 0 ? this.modifiedTask[0].content : '',
+    category:
+      this.modifiedTask.length > 0
+        ? this.modifiedTask[0].category
+        : this.formCategory,
+    isUrgent:
+      this.modifiedTask.length > 0 ? this.modifiedTask[0].isUrgent : false,
+    doneDate:
+      this.modifiedTask.length > 0 ? this.modifiedTask[0].doneDate : null,
   };
 
   ngOnInit() {
-    // je récupère la première valeur de mon tableau prop categorie
-    console.log(this.todos.category);
+    // Je récupère ma liste de tâche à modifier (qui restera à seulement un élément cxar après modif, je la supprime du tableau)
+    console.log(this.modifiedTask);
   }
 
   // Je capte mon Formulaire pour utiliser le reset() et vider les inputs
@@ -48,6 +59,8 @@ export class AddingTasksComponent {
     this.addTodo(this.todos);
     // Je reset les champs du formulaire
     this.todoForm.reset();
+    // Je supprime la tache à modifier du LS
+    this.todo.deleteModified(this.modifiedTask[0].id);
     // Je retourne à la page d'accueil
     return this.route.navigate(['/']);
   }
