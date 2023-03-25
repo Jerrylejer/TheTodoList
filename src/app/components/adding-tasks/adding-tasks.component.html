@@ -88,13 +88,12 @@
     >
     <textarea
       name="myTask"
-      id=""
+      id="content"
       cols="30"
       rows="10"
       class="mytask-textarea"
       [(ngModel)]="todos.content"
       ngDefaultControl
-      name="content"
       placeholder="Exemple : Faire les courses"
       required
     ></textarea>
@@ -102,10 +101,10 @@
       <input
         type="checkbox"
         name="isUrgent"
+        id="isUrgent"
         class="checkbox-item"
         [(ngModel)]="todos.isUrgent"
         ngDefaultControl
-        name="isUrgent"
       />
       <label for="isUrgent" class="checkbox-l" name="isUrgent">
         La tâche est urgente🔺

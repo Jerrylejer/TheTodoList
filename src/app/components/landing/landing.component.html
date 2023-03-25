@@ -1,36 +1,42 @@
 <section class="landing-page">
-    <div class="listing">
-        <ul class="ul">
-            <!-- Ma tache doit être un radio button pour la sélection simple et envoie direct dans l'historique-->
-            <!-- Elles doivent également être séparées en deux listes Urgentes | non-urgentes -->
-            <p class="title-taskslists" [hidden]="!isHide">📌Tâches urgentes</p>
-            <ng-container *ngFor="let todo of todoLists">
-                <li class="li" *ngIf="todo.isUrgent == true" (click)="submitButton(todo)"><input
-                    type="radio"
-                    class="radio"
-                    />
-                    <!-- Mettre ma méthode (click)="versAddTasks()" dans le label interfère avec le submitButton() -->
-                    <label for="shopping-radio" class="task-label" >{{todo.category}} {{todo.content}}</label>
-                </li>
-            </ng-container>
-            <!-- Mon sous-titre s'affiche même si pas de tâche => à corriger -->
-            <p class="title-taskslists" [hidden]="!isHide">🌸 Tâches non urgentes</p>
-            <ng-container *ngFor="let todo of todoLists">
-                <li class="li" *ngIf="todo.isUrgent == false" (click)="submitButton(todo)"><input
-                    type="radio"
-                    class="radio"
-                    />
-                    <!-- Mettre ma méthode (click)="versAddTasks()" dans le label interfère avec le submitButton() -->
-                    <label for="shopping-radio" class="task-label" >{{todo.category}} {{todo.content}}</label>
-                </li>
-            </ng-container>
-        </ul>
+  <div class="listing">
+    <ul class="ul">
+      <!-- le type radio ne marche pas quand je mets un click à l'intérieur => choix du submit-->
+      <!-- Elles doivent également être séparées en deux listes Urgentes | non-urgentes -->
+      <p class="title-taskslists" [hidden]="!isHide">📌Tâches urgentes</p>
+      <ng-container *ngFor="let todo of todoLists">
+        <li class="li" *ngIf="todo.isUrgent == true">
+            <label for="shopping-radio" class="task-label">
+                <input type="submit" class="radio" (click)="submitButton(todo)" />
+                </label
+                >
+            <div (click)="modifyMyTask(todo)">
+              {{ todo.category }} {{ todo.content }}
+            </div>
+        </li>
+      </ng-container>
+      <!-- Mon sous-titre s'affiche même si pas de tâche => à corriger -->
+      <p class="title-taskslists" [hidden]="!isHide">🌸 Tâches non urgentes</p>
+      <ng-container *ngFor="let todo of todoLists">
+        <li class="li" *ngIf="todo.isUrgent == false">
+            <label for="shopping-radio" class="task-label">
+                <input type="submit" class="radio" (click)="submitButton(todo)" />
+                </label
+                >
+            <div (click)="modifyMyTask(todo)">
+              {{ todo.category }} {{ todo.content }}
+            </div>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  <div class="landing-message">
+    <div [hidden]="isHide">
+      <!-- Afficher conditionnellement cette div (si pas de tâches) -->
+      <p>Aucune tâche pour le moment</p>
+      <button class="landing-button" routerLink="/myNewTask">
+        Créer une tâche
+      </button>
     </div>
-    <div class="landing-message">
-        <div [hidden]="isHide">
-            <!-- Afficher conditionnellement cette div (si pas de tâches) -->
-            <p>Aucune tâche pour le moment</p>
-            <button class="landing-button" routerLink="/myNewTask">Créer une tâche</button>
-        </div>
-    </div>
+  </div>
 </section>

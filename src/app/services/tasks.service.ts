@@ -5,7 +5,7 @@ import { ITodo } from '../interfaces/myTask';
   providedIn: 'root',
 })
 export class TasksService {
-  // Ma propriété qui qui va stocker les données du formulaire
+  // Ma propriété qui va stocker les données du formulaire
   todos: ITodo = {
     id: 1,
     content: '',
@@ -48,9 +48,9 @@ export class TasksService {
     // Je récupère ma liste des tâches
     const storage = this.getTodos();
     // Le findIndex renvoie l'index de chaque objet DU TABLEAU STORAGE
-    const itemIndex = storage.findIndex((item: ITodo) => item.id === id)
+    const itemIndex = storage.findIndex((item: ITodo) => item.id === id);
     // Méthode splice qui prend en compte l'itemIndex (1er arg) et supprime le nombre d'éléments à patir de celui-ci (2ème arg)
-    //! La dernière tâche qui reste ne s'efface pas de la liste
+    //todo La dernière tâche qui restait ne s'effacait pas de la liste => findIndex
     storage.splice(itemIndex, 1);
     // Je renvoie dans le LS le nouveau tableau des todos mis à jour
     localStorage.setItem('todo', JSON.stringify(storage));
@@ -95,5 +95,34 @@ export class TasksService {
     // Push des données dans mon tableau d'historique
     storage.push(hystoric);
     localStorage.setItem('hystory', JSON.stringify(storage));
+  }
+
+  //TODO MES METHODES POUR MES TACHES EN STATUT DE MODIFICATION
+  // Création de l'espace modified dans le LS
+  createTodosModif() {
+    const myModification: [] = [];
+    const stringifyMyModification = JSON.stringify(myModification);
+    localStorage.setItem('modified', stringifyMyModification);
+  }
+
+  // Récupération la liste des modified ou création dans LS
+  getModify() {
+    const modifiedList = localStorage.getItem('modified');
+    if (modifiedList) {
+      return JSON.parse(modifiedList);
+    } else {
+      this.createTodosModif();
+      this.getModify();
+    }
+    console.log('Ma liste des tâches modifiées :', modifiedList);
+  }
+
+  // Ajouter une tache à la liste des modified
+  addToModify(modified: ITodo) {
+    // Je récupère ma liste de tâche ou j'en créé une
+    const storage = this.getModify();
+    // Push des données dans mon tableau d'historique
+    storage.push(modified);
+    localStorage.setItem('modified', JSON.stringify(storage));
   }
 }
