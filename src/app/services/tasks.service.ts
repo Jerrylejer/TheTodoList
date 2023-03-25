@@ -126,7 +126,7 @@ export class TasksService {
     localStorage.setItem('modified', JSON.stringify(storage));
   }
 
-    // Supprimer une tâche de la liste
+    // Supprimer une tâche de la liste 
     deleteModified(id: number) {
       // Je récupère ma liste des tâches
       const storage = this.getModify();
