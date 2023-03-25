@@ -21,7 +21,7 @@ export class LandingComponent {
     // Je récupère ma liste des tâches
     this.getTodoList();
     // Je lance l'initialisation du localStorage "historique"
-    this.todo.getHistory()
+    this.todo.getHistory();
     // Je lance l'initialisation du localStorage "modification"
     this.todo.getModify();
     // Je lance ma méthode pour l'affichage accueil conditionnel
@@ -43,9 +43,9 @@ export class LandingComponent {
   // Au submit du radioBTN, je capte les données
   submitButton(selectedTodo: ITodo) {
     // Je récupère mon objet (ma tâche) !!!
-    console.log('la tâche sélectionnée pour suppression :',selectedTodo)
+    console.log('la tâche sélectionnée pour suppression :', selectedTodo);
     // J'envoie mon objet dans mon LS Historique
-    this.todo.addToHystory(selectedTodo)
+    this.todo.addToHystory(selectedTodo);
     console.log('index de la tâche qui doit être supprimée :', selectedTodo.id);
     // Je supprime la tâche de la liste
     this.todo.deleteOneTask(selectedTodo.id);
@@ -55,13 +55,15 @@ export class LandingComponent {
 
   // Cliquer sur le texte pour renvoyer dans le adding-task AVEC les données de la tâche
   modifyMyTask(selectedTodo: ITodo) {
-        // Je récupère mon objet (ma tâche) !!!
-        console.log('la tâche sélectionnée pour modification :', selectedTodo);
-        // J'ajoute la tache dans le tableau 
-        this.todo.addToModify(selectedTodo);
-        console.log('index de la tâche qui doit être modifiée :', selectedTodo.id);
-        // Je renvoie à la page de l'historique pré-remplie
-        this.route.navigate(['myNewTask']);
-        //todo Comment faire pour que les champs de mon formulaire soient pré-remplis avec les infos de selectedTodo ?
+    // Je récupère mon objet (ma tâche) !!!
+    console.log('la tâche sélectionnée pour modification :', selectedTodo);
+    // J'ajoute la tache dans le tableau
+    this.todo.addToModify(selectedTodo);
+    console.log('index de la tâche qui doit être modifiée :', selectedTodo.id);
+    // Je renvoie à la page de l'historique pré-remplie
+    this.route.navigate(['myNewTask']);
+    // Je supprime la tâche de la liste
+    this.todo.deleteOneTask(selectedTodo.id);
+    //todo Comment faire pour que les champs de mon formulaire soient pré-remplis avec les infos de selectedTodo ?
   }
 }
