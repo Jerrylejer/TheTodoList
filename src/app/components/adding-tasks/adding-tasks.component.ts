@@ -18,6 +18,7 @@ export class AddingTasksComponent {
   formCategory: string = '';
   // Je récupère dans ma prop "modifiedTask", la liste de mon localStorage dédié à la tache à modifier
   // Ce tableau sera nécessairement alimenté que par 1 seule tâche qui sera supprimée à la validation des modifs
+  // D'où le modifiedTask[0] (un seul élémnent dans le tableau)
   modifiedTask: ITodo[] = this.todo.getModify();
   // "todos" =>  propriété qui va stocker les données du formulaire
   // Je fais une ternaire pour chaque propriété => Si mon tableau LS "modified" contient un objet, je prends les datas de cet objet sinon je capte les données de mon formulaire
@@ -38,14 +39,14 @@ export class AddingTasksComponent {
   };
 
   ngOnInit() {
-    // Je récupère ma liste de tâche à modifier (qui restera à seulement un élément cxar après modif, je la supprime du tableau)
+    // Je récupère ma liste de tâche à modifier (qui restera à seulement un élément car après modif, je la supprime du tableau)
     console.log(this.modifiedTask);
   }
 
   // Je capte mon Formulaire pour utiliser le reset() et vider les inputs
   @ViewChild('myForm') todoForm!: NgForm;
 
-  // J'utilise mon service et intègre sa méthodez addTodos(en paramètre la props todos qui capte les valeurs d'inputs)
+  // J'utilise mon service et intègre sa méthode addTodos(en paramètre la props todos qui capte les valeurs d'inputs)
   addTodo(todos: ITodo) {
     this.todo.addTodos(todos);
   }
