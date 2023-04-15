@@ -64,6 +64,5 @@ export class LandingComponent {
     this.route.navigate(['myNewTask']);
     // Je supprime la tâche de la liste
     this.todo.deleteOneTask(selectedTodo.id);
-    //todo Comment faire pour que les champs de mon formulaire soient pré-remplis avec les infos de selectedTodo ?
   }
 }

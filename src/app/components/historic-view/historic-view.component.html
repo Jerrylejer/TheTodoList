@@ -1,17 +1,12 @@
-<section class="historic-page">
+<section>
     <div class="historic-p">
         <p>historique des tâches :</p>
     </div>
-    <div class="listing-form">
-        <ul class="ul-form">
             <ng-container *ngFor="let todo of hystoric">
-                <li class="li-form"><input
-                    type="radio"
-                    class="radio"
-                    />
-                    <label for="shopping-radio" class="task-label">{{todo.category}} {{todo.content}}</label>
-                </li>
+                <div (click)="todolistButton(todo)" >
+                    <input type="checkbox" class="checked"/>
+                    <label for="shopping-radio">
+                        {{todo.category}} {{todo.content}}</label>
+                </div>
             </ng-container>
-        </ul>
-    </div>
 </section>

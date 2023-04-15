@@ -97,6 +97,19 @@ export class TasksService {
     localStorage.setItem('hystory', JSON.stringify(storage));
   }
 
+  // Supprimer une tâche de la liste (pour retour dans la todolist)
+  deleteFromHistoric(id: number) {
+    // Je récupère ma liste des tâches
+    const storage = this.getHistory();
+    // Le findIndex renvoie l'index de chaque objet DU TABLEAU STORAGE
+    const itemIndex = storage.findIndex((item: ITodo) => item.id === id);
+    // Méthode splice qui prend en compte l'itemIndex (1er arg) et supprime le nombre d'éléments à patir de celui-ci (2ème arg)
+    //todo La dernière tâche qui restait ne s'effacait pas de la liste => findIndex
+    storage.splice(itemIndex, 1);
+    // Je renvoie dans le LS le nouveau tableau des todos mis à jour
+    localStorage.setItem('hystory', JSON.stringify(storage));
+  }
+
   //TODO MES METHODES POUR MES TACHES EN STATUT DE MODIFICATION
   // Création de l'espace modified dans le LS
   createTodosModif() {
@@ -126,16 +139,16 @@ export class TasksService {
     localStorage.setItem('modified', JSON.stringify(storage));
   }
 
-    // Supprimer une tâche de la liste 
-    deleteModified(id: number) {
-      // Je récupère ma liste des tâches
-      const storage = this.getModify();
-      // Le findIndex renvoie l'index de chaque objet DU TABLEAU STORAGE
-      const itemIndex = storage.findIndex((item: ITodo) => item.id === id);
-      // Méthode splice qui prend en compte l'itemIndex (1er arg) et supprime le nombre d'éléments à patir de celui-ci (2ème arg)
-      //todo La dernière tâche qui restait ne s'effacait pas de la liste => findIndex
-      storage.splice(itemIndex, 1);
-      // Je renvoie dans le LS le nouveau tableau des todos mis à jour
-      localStorage.setItem('modified', JSON.stringify(storage));
-    }
+  // Supprimer une tâche de la liste
+  deleteModified(id: number) {
+    // Je récupère ma liste des tâches
+    const storage = this.getModify();
+    // Le findIndex renvoie l'index de chaque objet DU TABLEAU STORAGE
+    const itemIndex = storage.findIndex((item: ITodo) => item.id === id);
+    // Méthode splice qui prend en compte l'itemIndex (1er arg) et supprime le nombre d'éléments à patir de celui-ci (2ème arg)
+    //todo La dernière tâche qui restait ne s'effacait pas de la liste => findIndex
+    storage.splice(itemIndex, 1);
+    // Je renvoie dans le LS le nouveau tableau des todos mis à jour
+    localStorage.setItem('modified', JSON.stringify(storage));
+  }
 }
