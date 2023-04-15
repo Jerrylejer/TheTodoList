@@ -53,7 +53,6 @@ export class FooterComponent {
       this.btnColorListing = '#1D2038';
       this.btnColorHistory = '#1D2038';
     }
-    
   }
   switchBtnColors3() {
     this.btnColorHistory = '#E475F1';

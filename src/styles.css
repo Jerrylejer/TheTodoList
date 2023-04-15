@@ -11,12 +11,19 @@ html, button {
   color: white;
 }
 
+/* Astuce Manon + donner une height fixe au header et footer */
 body {
   background: #040722;
   display: flex;
   flex-direction: column;
   height: 100vh;
   max-height: 100vh;
+}
+
+/* Astuce Manon + donner une height fixe au header et footer */
+section {
+  flex: 1;
+  overflow-y: scroll;
 }
 
 ul, li {
