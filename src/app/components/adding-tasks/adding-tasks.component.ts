@@ -60,8 +60,8 @@ export class AddingTasksComponent {
     this.addTodo(this.todos);
     // Je reset les champs du formulaire
     this.todoForm.reset();
-    // Je supprime la tache à modifier du LS
-    this.todo.deleteModified(this.modifiedTask[0].id);
+    // Je supprime la tache à modifier du LS si il y en a une
+    if(this.modifiedTask.length > 0) {this.todo.deleteModified(this.modifiedTask[0].id)};
     // Je retourne à la page d'accueil
     return this.route.navigate(['/']);
   }

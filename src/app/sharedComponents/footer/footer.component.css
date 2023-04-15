@@ -7,6 +7,16 @@
     align-items: center;
 }
 
+.button-yellow {
+    background: yellow;
+}
+.button-blue {
+    background: blue;
+}
+.button-purple {
+    background: purple;
+}
+
 .btn {
     width: 66px;
     height: 66px;

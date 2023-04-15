@@ -5,32 +5,28 @@
 }
 
 /* Input de la tâche */
-input[type="checkbox"] {
-  display: none;
+.checkboxline {
+  line-height: 2rem;
 }
 
-input[type="checkbox"]+ *::before {
-  content:'';
-  margin-right: 15px;
-  accent-color: #1d2038;
+.checkbox-item {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  vertical-align: middle;
+  line-height:2em;
   width: 23px;
   height: 23px;
-  border-radius: 50%;
+  background-color: #1d2038;
   border: 2px solid #ffffff;
-  display: inline-block;
+  border-radius: 50px;
+  margin-right: 11px;
   cursor: pointer;
-  vertical-align: middle;
 }
 
-.checked {
-  background-image: url("/src/assets/checked_icon/8666665_check_icon.png");
-  background-size: cover;
-  background-position: center center;
+.checkbox-item:checked {
+  content:'';
+  background-image: url(../../../assets/checked_icon/8666665_check_icon.png);
   background-repeat: no-repeat;
-  background-size: 80%;
-
-}
-
-input[type="checkbox"] + label {
-    line-height:2em;
+  background-position: center;
 }
