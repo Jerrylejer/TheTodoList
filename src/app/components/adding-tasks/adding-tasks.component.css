@@ -79,14 +79,12 @@ textarea::placeholder {
   border: none;
   border-radius: 50px;
   margin-right: 11px;
-  clip-path: circle(46% at 50% 50%);
   cursor: pointer;
 }
 
 .checkbox-item:checked {
   content:'';
-  background-image: url(../../../assets/icons_categories/💊️.png);
-  /* background-image: url(); */
+  background-image: url(../../../assets/checked_icon/8666665_check_icon.png);
   background-repeat: no-repeat;
   background-position: center;
   background-color: #E475F1;

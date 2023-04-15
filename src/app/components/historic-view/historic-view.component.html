@@ -3,10 +3,11 @@
         <p>historique des tâches :</p>
     </div>
             <ng-container *ngFor="let todo of hystoric">
-                <div (click)="todolistButton(todo)" >
-                    <input type="checkbox" class="checked"/>
-                    <label for="shopping-radio">
-                        {{todo.category}} {{todo.content}}</label>
+                <div (click)="todolistButton(todo)" class="checkboxline">
+                    <input type="checkbox" class="checkbox-item" checked/>
+                    <label>
+                        {{todo.category}} {{todo.content}}
+                    </label>
                 </div>
-            </ng-container>
+            </ng-container>            
 </section>
