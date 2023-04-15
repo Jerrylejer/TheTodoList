@@ -11,6 +11,10 @@ html, button {
   color: white;
 }
 
+ul, li {
+  list-style: none;
+}
+
 /* Astuce Manon + donner une height fixe au header et footer */
 body {
   background: #040722;
@@ -26,6 +30,14 @@ section {
   overflow-y: scroll;
 }
 
-ul, li {
-  list-style: none;
+/* Customization de la scrollBar */
+
+section::-webkit-scrollbar {
+  width: 3px;
 }
+
+section::-webkit-scrollbar-thumb {
+  background-color: #F3D24F;
+  border-radius: 10px;
+}
+

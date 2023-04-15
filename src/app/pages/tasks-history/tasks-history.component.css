@@ -1,5 +1,6 @@
 .historic {
     display: flex;
     margin-left: 26px;
-    height: 80vh;
+    /* à partir de 80vh la scroll prend le body tout entier = 2 scrollbars */
+    height: 79vh;
 }
