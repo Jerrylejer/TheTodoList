@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HistoricViewComponent {
   // Mon tableau de l'historique
-  hystoric: ITodo[] = [];
+  historic: ITodo[] = [];
 
   constructor(private todo: TasksService, private route: Router) {}
 
@@ -20,8 +20,8 @@ export class HistoricViewComponent {
 
   // Je récupère la liste des todos de l'historique
   getHistoryList() {
-    this.hystoric = this.todo.getHistory();
-    console.log(this.hystoric);
+    this.historic = this.todo.getHistory();
+    console.log(this.historic);
   }
 
   // Au submit du radioBTN, je capte les données
