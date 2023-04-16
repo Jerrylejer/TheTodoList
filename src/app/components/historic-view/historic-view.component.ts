@@ -9,8 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./historic-view.component.css'],
 })
 export class HistoricViewComponent {
-  // Booléen qui gère l'apparition/disparition btn + message d'accueil
-  // isHide: boolean = false;
   // Mon tableau de l'historique
   hystoric: ITodo[] = [];
 
@@ -33,12 +31,12 @@ export class HistoricViewComponent {
       'la tâche sélectionnée pour retourner dans la todolist :',
       selectedTodo
     );
-    // J'envoie mon objet dans mon LS Historique
+    // J'envoie mon objet le LS de la todolist
     this.todo.addTodos(selectedTodo);
     console.log('index de la tâche qui doit être retournée :', selectedTodo.id);
-    // Je supprime la tâche de la liste
+    // Je supprime la tâche de la liste de l'historique
     this.todo.deleteFromHistoric(selectedTodo.id);
-    // Je renvoie à la page de l'historique
+    // Je renvoie à la page de la todolist
     this.route.navigate(['']);
   }
 }
