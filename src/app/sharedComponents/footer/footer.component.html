@@ -1,9 +1,9 @@
 <section class="footer">
   <button
-    class="btn"
-    (click)="switchBtnColors1()"
+    class="btn green"
     routerLink=""
     [ngStyle]="{ background: btnColorListing }" 
+    id="home"
   >
     <img
       class="icon-list"
@@ -12,10 +12,10 @@
     />
   </button>
   <button
-    class="btn"
-    (click)="switchBtnColors2()"
+    class="btn yellow"
     routerLink="/myNewTask"
     [ngStyle]="{ background: btnColorAdd }"
+    id="add"
   >
     <img
       class="icon-plus"
@@ -24,10 +24,10 @@
     />
   </button>
   <button
-    class="btn"
-    (click)="switchBtnColors3()"
+    class="btn pink"
     routerLink="/myTaskHistory"
     [ngStyle]="{ background: btnColorHistory }"
+    id="histo"
   >
     <img
       class="icon-history"

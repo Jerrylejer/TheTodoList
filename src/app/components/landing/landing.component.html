@@ -4,20 +4,20 @@
       <!-- le type radio ne marche pas quand je mets un click à l'intérieur => choix du submit-->
       <!-- Elles doivent également être séparées en deux listes Urgentes | non-urgentes -->
       <p class="title-taskslists" [hidden]="!isHide">📌Tâches urgentes</p>
-      <ng-container *ngFor="let todo of todoLists">
-        <li class="li" *ngIf="todo.isUrgent == true">
-            <label for="shopping-radio" class="task-label">
-                <input type="submit" class="radio" (click)="submitButton(todo)" />
-                </label
-                >
-            <div (click)="modifyMyTask(todo)">
-              {{ todo.category }} {{ todo.content }}
-            </div>
-        </li>
-      </ng-container>
+        <ng-container *ngFor="let todo of todoLists">
+          <li class="li" *ngIf="todo.isUrgent == true">
+              <label for="shopping-radio" class="task-label">
+                  <input type="submit" class="radio" (click)="submitButton(todo)" />
+                  </label
+                  >
+              <div (click)="modifyMyTask(todo)">
+                {{ todo.category }} {{ todo.content }}
+              </div>
+          </li>
+        </ng-container>
       <!-- Mon sous-titre s'affiche même si pas de tâche => à corriger -->
       <p class="title-taskslists" [hidden]="!isHide">🌸 Tâches non urgentes</p>
-      <ng-container *ngFor="let todo of todoLists">
+      <ng-container *ngFor="let todo of todoLists" id="non-urgent" #nonUrgentTasks>
         <li class="li" *ngIf="todo.isUrgent == false">
             <label for="shopping-radio" class="task-label">
                 <input type="submit" class="radio" (click)="submitButton(todo)" />
