@@ -22,25 +22,39 @@ export class AddingTasksComponent {
   modifiedTask: ITodo[] = this.todo.getModify();
   // "todos" =>  propriété qui va stocker les données du formulaire
   // Je fais une ternaire pour chaque propriété => Si mon tableau LS "modified" contient un objet, je prends les datas de cet objet sinon je capte les données de mon formulaire
+  
   todos: ITodo = {
     id:
-      this.modifiedTask.length > 0
-        ? this.modifiedTask[0].id
-        : this.todo.addNewId(),
+    this.modifiedTask.length > 0
+    ? this.modifiedTask[0].id
+    : this.todo.addNewId(),
     content: this.modifiedTask.length > 0 ? this.modifiedTask[0].content : '',
     category:
-      this.modifiedTask.length > 0
-        ? this.modifiedTask[0].category
-        : this.formCategory,
+    this.modifiedTask.length > 0
+    ? this.modifiedTask[0].category
+    : this.formCategory,
     isUrgent:
-      this.modifiedTask.length > 0 ? this.modifiedTask[0].isUrgent : false,
+    this.modifiedTask.length > 0 ? this.modifiedTask[0].isUrgent : false,
     doneDate:
-      this.modifiedTask.length > 0 ? this.modifiedTask[0].doneDate : null,
+    this.modifiedTask.length > 0 ? this.modifiedTask[0].doneDate : null,
   };
+  
+  // Changement du texte du BTN de validation des tâches suivant si création ou modification d'une tâche
+  messageBtn: string = "Créer une tâche";
+  // Ma méthode toute simple
+  switchMessageBtn() {
+    if(this.modifiedTask.length > 0) {
+      this.messageBtn = "modifier la tâche"
+    } else {
+      this.messageBtn = this.messageBtn;
+    }
+  }
 
   ngOnInit() {
     // Je récupère ma liste de tâche à modifier (qui restera à seulement un élément car après modif, je la supprime du tableau)
     console.log(this.modifiedTask);
+    // Je lance la méthode quyi change le texte sur le BTN de validation
+    this.switchMessageBtn();
   }
 
   // Je capte mon Formulaire pour utiliser le reset() et vider les inputs
